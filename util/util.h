@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <sys/time.h>
+#include <pthread.h>
 
 #define CODE_SIZE 5
 #define CODE_PADDING 1
@@ -25,7 +26,8 @@
 
 #define CLIENT_MESSAGE_SIZE 2000
 #define CLIENT_COMMAND_SIZE 1000
-#define ROOT_DIRECTORY "/home/sashaw/Downloads/CS5600_Practicum2-main/server/server_client"
+#define ROOT_DIRECTORY "/home/sashaw/Downloads/CS5600Practicum2/server/server_client/"
+#define CLIENT_DIRECTORY "/home/sashaw/Downloads/CS5600Practicum2/client/"
 
 #endif 
 

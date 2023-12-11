@@ -15,22 +15,22 @@ struct sockaddr_in server_addr;
 bool isDirectoryAvailable;
 bool isRootDirectoryInit;
 
-pthread_mutex_t root_directory_mutex;
-pthread_mutex_t root_directory_availability_mutex;
+pthread_mutex_t client_directory_mutex;
+pthread_mutex_t client_directory_availability_mutex;
 
 void directory_changeDirectoryAvailability(bool availability)
 {
-  pthread_mutex_lock(&root_directory_availability_mutex);
+  pthread_mutex_lock(&client_directory_availability_mutex);
 
   isDirectoryAvailable = availability;
 
-  pthread_mutex_unlock(&root_directory_availability_mutex);
+  pthread_mutex_unlock(&client_directory_availability_mutex);
 }
 
 
 void directory_acquireDirectory()
 {
-  pthread_mutex_lock(&root_directory_mutex);
+  pthread_mutex_lock(&client_directory_mutex);
 
   directory_changeDirectoryAvailability(false);
 }
@@ -40,7 +40,7 @@ void directory_releaseDirectory()
 {
   directory_changeDirectoryAvailability(true);
 
-  pthread_mutex_unlock(&root_directory_mutex);
+  pthread_mutex_unlock(&client_directory_mutex);
 }
 
 bool directory_isDirectoryInit()
@@ -79,11 +79,11 @@ bool directory_isDirectoryAvailable()
   }
   else
   {
-    pthread_mutex_lock(&root_directory_availability_mutex);
+    pthread_mutex_lock(&client_directory_availability_mutex);
 
     res = isDirectoryAvailable;
 
-    pthread_mutex_unlock(&root_directory_availability_mutex);
+    pthread_mutex_unlock(&client_directory_availability_mutex);
 
     if (res)
     {
@@ -102,13 +102,13 @@ int init_createRootDirectory()
 {
   struct stat st1 = {0};
 
-  if (pthread_mutex_init(&root_directory_mutex, NULL) != 0)
+  if (pthread_mutex_init(&client_directory_mutex, NULL) != 0)
   {
     printf("INIT ERROR: root directory 1 mutex init failed\n");
     exit(1);
   }
 
-  if (stat(ROOT_DIRECTORY, &st1) == -1)
+  if (stat(CLIENT_DIRECTORY, &st1) == -1)
   {
     // created using S_IREAD, S_IWRITE, S_IEXEC (0400 | 0200 | 0100) permission flags
     int res = mkdir(CLIENT_DIRECTORY, 0700);
@@ -195,6 +195,17 @@ void command_get(char *remote_file_path, char *local_file_path)
   strncat(actual_path, local_file_path, strlen(local_file_path));
   printf("GET: client actual path: %s \n", actual_path);
   
+  char directory[200];
+  char file_name[200];
+  sscanf(remote_file_path, "%[^/]/%s", directory, file_name);
+
+  // Create the directory if it doesn't exist
+    struct stat st = {0};
+    if (stat(directory, &st) == -1) {
+        mkdir(directory, 0700);
+        printf("WRITE: Directory '%s' created\n", directory);
+    }
+
   local_file = fopen(actual_path, "w");
 
   if (local_file == NULL)
@@ -287,45 +298,145 @@ void command_get(char *remote_file_path, char *local_file_path)
 
   printf("COMMAND: GET complete\n\n");
 }
-void command_write(char *local_file_path, char *remote_file_path) {
-    
-  FILE *local_file;
-  char actual_path[200];
-  strcpy(actual_path, CLIENT_DIRECTORY);
-  strncat(actual_path, local_file_path, strlen(local_file_path));
-  printf("GET: client actual path: %s \n", actual_path);
 
-  local_file = fopen(actual_path, "r");
+void command_write(char *local_file_path, char *remote_file_path)
+{
+    char actual_path[200];
+    int targetDirectory = 0;
 
-  if (local_file == NULL)
-  {
-    printf("GET ERROR: Local file could not be opened. Please check whether the location exists.\n");
-  }
-  else
-  {
-    // Connect to server socket:
+    while (true)
+    {
+        if (directory_isDirectoryAvailable())
+        {
+            directory_acquireDirectory();
+            printf("GET: Directory is acquired\n");
+            targetDirectory = 1;
+            strcpy(actual_path, CLIENT_DIRECTORY);
+            break;
+        }
+        else
+        {
+            printf("GET: Waiting for available directory\n");
+        }
+    }
+
+    strncat(actual_path, local_file_path, strlen(local_file_path));
+    printf("GET: client actual path: %s \n", actual_path);
+    printf("COMMAND: SEND started\n");
+
+    // Open local file for reading
+    FILE *local_file = fopen(local_file_path, "r");
+    if (local_file == NULL)
+    {
+        printf("SEND ERROR: Local file could not be opened. Please check whether the file exists.\n");
+        return;
+    }
+
+    // Connect to server socket
     client_connect();
-
 
     char client_message[CODE_SIZE + CODE_PADDING + CLIENT_MESSAGE_SIZE];
     memset(client_message, 0, sizeof(client_message));
     char server_response[CODE_SIZE + CODE_PADDING + SERVER_MESSAGE_SIZE];
     memset(server_response, 0, sizeof(server_response));
 
-
+    // Sending message to server
     char code[CODE_SIZE + CODE_PADDING] = "C:001 ";
     strncat(client_message, code, CODE_SIZE + CODE_PADDING);
+
     strncat(client_message, remote_file_path, strlen(remote_file_path));
     strncat(client_message, " ", 1);
     strncat(client_message, local_file_path, strlen(local_file_path));
+
     client_sendMessageToServer(client_message);
 
+    // Receive server response
     client_recieveMessageFromServer(server_response);
 
-  }
+    // Check if the server is ready to receive the file
+    if (strncmp(server_response, "S:100", CODE_SIZE) == 0)
+    {
+        // Send file data to server
+        char buffer[SERVER_MESSAGE_SIZE - 1];
+        memset(buffer, 0, sizeof(buffer));
+        int bytes_read;
 
+        while ((bytes_read = fread(buffer, sizeof(char), SERVER_MESSAGE_SIZE - 1, local_file)) > 0)
+        {
+            memset(client_message, 0, sizeof(client_message));
+            strcat(client_message, "S:206 ");
+            strncat(client_message, buffer, bytes_read);
+
+            client_sendMessageToServer(client_message);
+
+            memset(server_response, 0, sizeof(server_response));
+            client_recieveMessageFromServer(server_response);
+
+            if (strncmp(server_response, "S:100", CODE_SIZE) != 0)
+            {
+                printf("SEND ERROR: Stopped abruptly because the server is not accepting data anymore\n");
+                break;
+            }
+
+            memset(buffer, 0, sizeof(buffer));
+        }
+
+        // Notify the server that file sending is complete
+        memset(client_message, 0, sizeof(client_message));
+        strcat(client_message, "S:200 ");
+        strcat(client_message, "File sent successfully");
+
+        client_sendMessageToServer(client_message);
+
+        printf("SEND: File sent successfully\n");
+    }
+    else
+    {
+        printf("SEND ERROR: Server did not agree to receive the file contents.\n");
+    }
+
+    fclose(local_file);
+    if (targetDirectory == 1)
+    {
+        directory_releaseDirectory();
+    }
+    else
+    {
+        printf("GET ERROR: Unlocking directory mutex - No Directory is available\n");
+    }
+    printf("COMMAND: SEND complete\n\n");
 }
 
+
+void command_remove(char *path)
+{
+  printf("COMMAND: RM started\n");
+
+  char client_message[CODE_SIZE + CODE_PADDING + CLIENT_MESSAGE_SIZE];
+  char server_message[CODE_SIZE + CODE_PADDING + SERVER_MESSAGE_SIZE];
+
+  // empty string init
+  memset(client_message, '\0', sizeof(client_message));
+  memset(server_message, '\0', sizeof(server_message));
+
+  // build command to send to server
+  char code[CODE_SIZE + CODE_PADDING] = "C:003 ";
+  strncat(client_message, code, CODE_SIZE + CODE_PADDING);
+  strncat(client_message, path, strlen(path));
+
+  // Connect to server socket:
+  client_connect();
+
+  // send command to server
+  client_sendMessageToServer(client_message);
+
+  // get response from server
+  client_recieveMessageFromServer(server_message);
+
+  memset(server_message, 0, sizeof(server_message));
+
+  printf("COMMAND: RM complete\n\n");
+}
 
 void client_parseCommand(int argsCount, char **argv)
 {
@@ -353,6 +464,18 @@ void client_parseCommand(int argsCount, char **argv)
         else if (argsCount == 4)
         {
             command_get(argv[2], argv[3]);
+        }
+    }
+    else if (strcmp(argv[1], "RM") == 0)
+    {
+        if (argsCount == 3)
+        {
+            if (argv[2][0] == '.' || argv[2][0] == '/')
+            {
+                printf("ERROR: Invalid arguements provided\n");
+             }
+            printf("%s", argv[2]);
+            command_remove(argv[2]);
         }
     }
     else
@@ -383,7 +506,8 @@ int main(int argc, char **argv)
   }
 
   if (strcmp(argv[1], "WRITE") != 0 &&
-      strcmp(argv[1], "GET") != 0)
+      strcmp(argv[1], "GET") != 0 &&
+      strcmp(argv[1], "RM") != 0)
   {
     printf("Incorrect command provided!: %s\n", argv[1]);
     return 0;
@@ -391,7 +515,7 @@ int main(int argc, char **argv)
 
   // Initialize client socket:
   init_createClientSocket();
-
+  int status = init_createRootDirectory();
   // Get text message to send to server:
   client_parseCommand(argc, argv);
 

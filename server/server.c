@@ -1,3 +1,5 @@
+#define _XOPEN_SOURCE 500
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -381,41 +383,222 @@ void command_get(int client_sock, char *remote_file_path)
 
 void command_write(int client_sock, char *remote_file_path)
 {
-  printf("COMMAND: Write started\n");
 
-  // Open local file for writing
-  FILE *remote_file;
-  char actual_path[200];
-  strcpy(actual_path, ROOT_DIRECTORY);
-  strncat(actual_path, remote_file_path, strlen(remote_file_path));
-  printf("GET: actual path: %s \n", actual_path);
+    printf("COMMAND: RECEIVE started\n");
+    char actual_path[200];
+    strcpy(actual_path, ROOT_DIRECTORY);
+    strncat(actual_path, remote_file_path, strlen(remote_file_path));
+    printf("GET: client actual path: %s \n", actual_path);
 
-  remote_file = fopen(actual_path, "w");
+    char directory[200];
+    char file_name[200];
+    sscanf(remote_file_path, "%[^/]/%s", directory, file_name);
 
-  if (remote_file == NULL)
+  // Create the directory if it doesn't exist
+    struct stat st = {0};
+    if (stat(directory, &st) == -1) {
+        mkdir(directory, 0700);
+        printf("WRITE: Directory '%s' created\n", directory);
+    }
+
+    FILE *remote_file = fopen(actual_path, "w");
+    if (remote_file == NULL)
+    {
+        printf("RECEIVE ERROR: Local file could not be opened for writing.\n");
+        return;
+    }
+
+    char response_message[CODE_SIZE + CODE_PADDING + SERVER_MESSAGE_SIZE];
+    memset(response_message, 0, sizeof(response_message));
+
+    // Send success response to client to indicate server is ready to receive the file
+    strcat(response_message, "S:100 ");
+    strcat(response_message, "Success Continue");
+
+    server_sendMessageToClient(client_sock, response_message);
+
+    // Receive file data from client and write it to local file
+    char client_message[CODE_SIZE + CODE_PADDING + CLIENT_MESSAGE_SIZE];
+    memset(client_message, 0, sizeof(client_message));
+
+    server_recieveMessageFromClient(client_sock, client_message);
+
+    while (strncmp(client_message, "S:206", CODE_SIZE) == 0)
+    {
+        char *file_contents;
+        file_contents = client_message + CODE_SIZE + CODE_PADDING;
+
+        fwrite(file_contents, sizeof(char), strlen(file_contents), remote_file);
+
+        // Acknowledge receipt of the block
+        memset(response_message, 0, sizeof(response_message));
+        strcat(response_message, "S:100 ");
+        strcat(response_message, "Success Continue");
+
+        server_sendMessageToClient(client_sock, response_message);
+
+        // Receive the next block
+        memset(client_message, 0, sizeof(client_message));
+        server_recieveMessageFromClient(client_sock, client_message);
+    }
+
+    if (strncmp(client_message, "S:200", CODE_SIZE) == 0)
+    {
+        printf("RECEIVE: File received successfully\n");
+    }
+    else
+    {
+        printf("RECEIVE ERROR: File transfer unsuccessful\n");
+    }
+
+    fclose(remote_file);
+
+    printf("COMMAND: RECEIVE complete\n\n");
+}
+
+bool directory_isFileExists(const char *filename)
+{
+  FILE *fp = fopen(filename, "r");
+  bool is_exist = false;
+  if (fp != NULL)
   {
-    printf("GET ERROR: Local file could not be opened. Please check whether the location exists.\n");
+    is_exist = true;
+    fclose(fp); // close the file
+  }
+  return is_exist;
+}
+
+/// @brief Unlinks and removes a file.
+/// @param fpath represents the path of file/directory.
+/// @param sb buffer for stat command inside nftw command.
+/// @param typeflag type for nftw command.
+/// @param ftwbuf buffer for nftw command.
+/// @return 0 if successful.
+int directory_unlinkFile(const char *fpath, const struct stat *sb, int typeflag, struct FTW *ftwbuf)
+{
+  int rv = remove(fpath);
+
+  if (rv)
+    perror(fpath);
+
+  return rv;
+}
+
+int directory_removeDirectoryRecursively(char *path)
+{
+  return nftw(path, directory_unlinkFile, 64, FTW_DEPTH | FTW_PHYS);
+}
+
+void command_rm(int client_sock, char *path)
+{
+  printf("COMMAND: RM started\n");
+
+  // setup available directories and respective target file paths
+  char actual_path1[200];
+
+  // acquire all directories available for this command
+  if (directory_isDirectoryInit())
+  {
+    directory_acquireDirectory();
+
+    printf("RM: Directory is acquired\n");
+
+    strcpy(actual_path1, ROOT_DIRECTORY);
+    strncat(actual_path1, path, strlen(path));
+
+    printf("RM: actual path: %s\n", actual_path1);
   }
 
+ char response_message[CODE_SIZE + CODE_PADDING + SERVER_MESSAGE_SIZE];
+  memset(response_message, 0, sizeof(response_message));
 
-  while (true)
+  struct stat sb1;
+
+  // Check whether such a path exists in all directories
+  if ((isRootDirectoryInit && stat(actual_path1, &sb1) == -1))
   {
-    if (directory_isDirectoryAvailable())
+    // Fails RM command if even one root directory doesn't have this path to remove
+    printf("RM ERROR: Directory/File Not Found\n");
+    perror("stat");
+
+    strcat(response_message, "E:404 ");
+    strcat(response_message, "Directory/File Not Found");
+
+    server_sendMessageToClient(client_sock, response_message);
+  }
+  else
+  {
+    // Check whether path is a file
+    if (S_ISREG(sb1.st_mode))
     {
-      directory_acquireDirectory();
-      printf("GET: Directory is acquired\n");
-      strcpy(actual_path, ROOT_DIRECTORY);
-      break;
+      // Path is a regular file
+      int res1 = remove(actual_path1);
+
+      if (res1 != 0 )
+      {
+        // removal of file failed
+        printf("RM ERROR: File Removal failed\n");
+        perror("remove");
+        strcat(response_message, "E:406 ");
+        strcat(response_message, "File Removal failed");
+
+        server_sendMessageToClient(client_sock, response_message);
+      }
+      else
+      {
+        // removal of file successful
+        printf("RM: File Removal successful\n");
+
+        strcat(response_message, "S:200 ");
+        strcat(response_message, "File Removal successful");
+
+        server_sendMessageToClient(client_sock, response_message);
+      }
+    }
+    // Check whether path is a folder
+    else if (S_ISDIR(sb1.st_mode))
+    {
+      // Path is a directory
+      int res1 = directory_removeDirectoryRecursively(actual_path1);
+      if (res1 != 0 )
+      {
+        // removal of directory failed
+        printf("RM ERROR: Directory Removal failed\n");
+        perror("remove");
+        strcat(response_message, "E:406 ");
+        strcat(response_message, "Directory Removal failed");
+
+        server_sendMessageToClient(client_sock, response_message);
+      }
+      else
+      {
+        // removal of directory successful
+        printf("RM: Directory Removal successful\n");
+
+        strcat(response_message, "S:200 ");
+        strcat(response_message, "Directory Removal successful");
+
+        server_sendMessageToClient(client_sock, response_message);
+      }
+    }
+    // Unsupported path
+    else
+    {
+      printf("RM ERROR: Given path is not supported\n");
+      strcat(response_message, "E:406 ");
+      strcat(response_message, "Given path is not supported");
+
+      server_sendMessageToClient(client_sock, response_message);
     }
   }
 
-  char response_message[CODE_SIZE + CODE_PADDING + SERVER_MESSAGE_SIZE];
-  memset(response_message, 0, sizeof(response_message));
+  // release the directories that were acquired for this command
+  if (isRootDirectoryInit)
+  {
+    directory_releaseDirectory();
+  }
 
-  strcat(response_message, "S:100 ");
-  strcat(response_message, "File found on server");
-  server_sendMessageToClient(client_sock, response_message);
-
+  printf("COMMAND: RM complete\n\n");
 }
 
 void *server_listenForCommand(void *client_sock_arg)
@@ -454,6 +637,10 @@ void *server_listenForCommand(void *client_sock_arg)
   {
     argcLimit = 3;
   }
+  else if (strcmp(args[0], "C:003") == 0)
+  {
+    argcLimit = 2;
+  }
 
   while (pch != NULL)
   {
@@ -474,6 +661,11 @@ void *server_listenForCommand(void *client_sock_arg)
   {
     printf("Coming to Get\n");
     command_get(client_sock, args[1]);
+  }
+  else if(strcmp(args[0], "C:003") == 0)
+  {
+    printf("Coming to Remove");
+    command_rm(client_sock, args[1]);
   }
   else {
      printf("LISTEN ERROR: Invalid command provided\n");

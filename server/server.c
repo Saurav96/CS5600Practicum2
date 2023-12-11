@@ -386,6 +386,7 @@ void command_write(int client_sock, char *remote_file_path)
 
     printf("COMMAND: RECEIVE started\n");
     char actual_path[200];
+    char directory_path[200];
     strcpy(actual_path, ROOT_DIRECTORY);
     strncat(actual_path, remote_file_path, strlen(remote_file_path));
     printf("GET: client actual path: %s \n", actual_path);
@@ -394,11 +395,14 @@ void command_write(int client_sock, char *remote_file_path)
     char file_name[200];
     sscanf(remote_file_path, "%[^/]/%s", directory, file_name);
 
+    strcpy(directory_path, ROOT_DIRECTORY);
+    strcat(directory_path, directory);
+    printf("%s\n", directory_path);
   // Create the directory if it doesn't exist
     struct stat st = {0};
-    if (stat(directory, &st) == -1) {
-        mkdir(directory, 0700);
-        printf("WRITE: Directory '%s' created\n", directory);
+    if (stat(directory_path, &st) == -1) {
+        mkdir(directory_path, 0700);
+        printf("WRITE: Directory '%s' created\n", directory_path);
     }
 
     time_t t = time(NULL);
@@ -407,7 +411,7 @@ void command_write(int client_sock, char *remote_file_path)
     strftime(timestamp, sizeof(timestamp), "%Y%m%d%H%M%S", tm_info);
 
     // Append the timestamp to the filename to create a new version
-    char versioned_file_name[200];
+    char versioned_file_name[220];
     sprintf(versioned_file_name, "%s_%s", file_name, timestamp);
 
     // Combine the directory and versioned filename
@@ -617,6 +621,79 @@ void command_rm(int client_sock, char *path)
   printf("COMMAND: RM complete\n\n");
 }
 
+#include <dirent.h>
+void command_ls(int client_sock, char *remote_file_path)
+{
+    printf("COMMAND: LS started\n");
+
+    char directory[200];
+    char file_name[200];
+    sscanf(remote_file_path, "%[^/]/%s", directory, file_name);
+
+    // Combine the directory and filename
+    char actual_path[200];
+    strcpy(actual_path, ROOT_DIRECTORY);
+    strcat(actual_path, directory);
+  
+    // Open the directory
+    DIR *dir = opendir(actual_path);
+    if (dir == NULL)
+    {
+        printf("INFO ERROR: Unable to open directory\n");
+        return;
+    }
+    strcat(actual_path, "/");
+    strcat(actual_path, file_name);
+
+    // Initialize a structure to store file information
+    struct dirent *ent;
+    struct stat st;
+
+    // Send success response to client
+    char response_message[CODE_SIZE + CODE_PADDING + SERVER_MESSAGE_SIZE];
+    memset(response_message, 0, sizeof(response_message));
+    strcat(response_message, "S:100 ");
+    strcat(response_message, "Success Continue");
+    server_sendMessageToClient(client_sock, response_message);
+
+    // Send file information to client
+    while ((ent = readdir(dir)) != NULL)
+    {
+        char timespan[20];
+        if (sscanf(ent->d_name, "%*[^_]_%19[^.]", timespan) == 1)
+        {
+            // Get file information
+            stat(actual_path, &st);
+
+            // Convert timestamp to a human-readable format
+            char timestamp[20];
+            strftime(timestamp, sizeof(timestamp), "%Y%m%d%H%M%S", localtime(&(st.st_mtime)));
+            printf("Original Timespan: %s, Formatted Timestamp: %s\n", timespan, timestamp);
+
+            // Construct and send the file information to the client
+            memset(response_message, 0, sizeof(response_message));
+            strcat(response_message, "S:206 ");
+            strcat(response_message, ent->d_name);
+            strcat(response_message, " ");
+            strcat(response_message, timespan);
+
+            server_sendMessageToClient(client_sock, response_message);
+        }
+    }
+
+    // Close the directory
+    closedir(dir);
+
+    // Send completion message to the client
+    memset(response_message, 0, sizeof(response_message));
+    strcat(response_message, "S:200 ");
+    strcat(response_message, "File information sent successfully");
+    server_sendMessageToClient(client_sock, response_message);
+
+    printf("COMMAND: INFO complete\n\n");
+}
+
+
 void *server_listenForCommand(void *client_sock_arg)
 {
   int client_sock = *((int *)client_sock_arg);
@@ -657,7 +734,10 @@ void *server_listenForCommand(void *client_sock_arg)
   {
     argcLimit = 2;
   }
-
+  else if (strcmp(args[0], "C:004") == 0)
+  {
+    argcLimit = 2;
+  }
   while (pch != NULL)
   {
     if (argc >= argcLimit)
@@ -683,6 +763,11 @@ void *server_listenForCommand(void *client_sock_arg)
     printf("Coming to Remove");
     command_rm(client_sock, args[1]);
   }
+  else if(strcmp(args[0], "C:004") == 0)
+  {
+    printf("Coming to Remove");
+    command_ls(client_sock, args[1]);
+  }
   else {
      printf("LISTEN ERROR: Invalid command provided\n");
   }
@@ -691,6 +776,7 @@ void *server_listenForCommand(void *client_sock_arg)
   close(client_sock);
   
 }
+
 
 int initServer()
 {

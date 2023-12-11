@@ -1,0 +1,1337 @@
+tUint8  ipv4AddrBuf[IP_MAX_PRINT_BUFLEN];
+tUint8  ipv6AddrBuf[IP_MAX_PRINT_BUFLEN];
+used = snprintf(pBuf + offset, size, " numPduSess: %x\n", pUe->numPduSess);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " haFsmAction: %x\n", pUe->haFsmAction);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " haOpType: %x\n", pUe->haOpType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " needsAudit: %x\n", pUe->needsAudit);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " synced: %x\n", pUe->synced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " noHaSync: %x\n", pUe->noHaSync);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " mcSynced: %x\n", pUe->mcSynced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " sessIndexBitMap: %x\n", pUe->sessIndexBitMap);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " _inUsePduSessIds_: %x\n", pUe->_inUsePduSessIds_);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " lastSessIdxSet: %x\n", pUe->lastSessIdxSet);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " delNServCdb: %x\n", pUe->delNServCdb);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " debugEnabled: %x\n", pUe->debugEnabled);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " lastCorrelnIdx: %x\n", pUe->lastCorrelnIdx);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pduSessBMapDoNotUpdSessId: %x\n", pUe->pduSessBMapDoNotUpdSessId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pduSessUpdList: %x\n", pUe->pduSessUpdList);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pduSessDelList: %x\n", pUe->pduSessDelList);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " bngFwaSubId: %x\n", pUe->bngFwaSubId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " bngFwaAcctHash: %x\n", pUe->bngFwaAcctHash);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " mcRed.sqn: %x\n", pUe->mcRed.sqn);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " mcRed.tag: %x\n", pUe->mcRed.tag);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.ueId: %x\n", pUe->stubRec.ueId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.bndlIdx: %x\n", pUe->stubRec.bndlIdx);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.pduSessStubRecCount: %x\n", pUe->stubRec.pduSessStubRecCount);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.supiType: %x\n", pUe->stubRec.supiType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.pushedToDb: %x\n", pUe->stubRec.pushedToDb);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.unauthenticatedSupi: %x\n", pUe->stubRec.unauthenticatedSupi);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.calltraceEnabled: %x\n", pUe->stubRec.calltraceEnabled);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.calltraceCandidate: %x\n", pUe->stubRec.calltraceCandidate);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.spare: %x\n", pUe->stubRec.spare);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " stubRec.createTime: %x\n", pUe->stubRec.createTime);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (int ipPduSessRec = 0; ipPduSessRec < 8; ipPduSessRec++) {
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->ueSessIdx: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->ueSessIdx);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->haOpType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->haOpType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->synced: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->synced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->mcSynced: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->mcSynced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->needsAudit: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->needsAudit);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->smgrDelSent: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->smgrDelSent);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->smgrDelAckd: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->smgrDelAckd);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->fiveGC2lteHO: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->fiveGC2lteHO);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->lte2FiveGCHO: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->lte2FiveGCHO);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->dontUpdateSessId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->dontUpdateSessId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->sessIdNoRel: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->sessIdNoRel);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->smgrReleased: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->smgrReleased);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->anType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->anType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->peerGenId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->peerGenId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessState: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessState);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pti: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pti);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->isCombo: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->isCombo);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->isIndirectTunnel: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->isIndirectTunnel);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->isHandoverCancel: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->isHandoverCancel);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->lte2FiveGCIdleHo: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->lte2FiveGCIdleHo);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->created201Sent: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->created201Sent);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->noImsiRel: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->noImsiRel);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->sessDscr: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->sessDscr);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->bulkInformed: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->bulkInformed);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->presenceInLadn: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->presenceInLadn);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pSmfToSmfHO: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pSmfToSmfHO);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->s2b2FiveGCHO: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->s2b2FiveGCHO);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->fiveG2s2bHoDoneAnRel: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->fiveG2s2bHoDoneAnRel);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->isEmergency: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->isEmergency);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->skipProto: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->skipProto);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->isRoaming: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->isRoaming);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->amfIdChanged: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->amfIdChanged);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->ind5GSIWK: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->ind5GSIWK);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->relReqSent: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->relReqSent);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->lbi: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->lbi);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->n11SrvId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->n11SrvId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->servingNetwork.mcc: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->servingNetwork.mcc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->servingNetwork.isMnc2Digits: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->servingNetwork.isMnc2Digits);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->servingNetwork.mnc: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->servingNetwork.mnc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->servingNetwork.nid: /%" PRIu64 "\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->servingNetwork.nid  & ((1ULL << 48) - 1));
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->servingNetwork.fill: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->servingNetwork.fill);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->dnnStrId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->dnnStrId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessInSet.ratType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessInSet.ratType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessInSet.selMode: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessInSet.selMode);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.ueId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.ueId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.pdnSessId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.pdnSessId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.spare: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.spare);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.skipProto: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.skipProto);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.isAudited: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.isAudited);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.sessIndex: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.sessIndex);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.accessType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.accessType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.iRatHo: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.iRatHo);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.bndlIdx: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.bndlIdx);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.pduSessId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.pduSessId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.seqNum: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.seqNum);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduSessStubRec.spare2: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduSessStubRec.spare2);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduAddrAlloc.pdnType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduAddrAlloc.pdnType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->pduAddrAlloc.ipv4Addr, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->pduAddrAlloc.ipv6prefix.ipv6Addr, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pduAddrAlloc.ipv6prefix.pfxLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pduAddrAlloc.ipv6prefix.pfxLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->ueIpReuse.ipv4PoolId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->ueIpReuse.ipv4PoolId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->ueIpReuse.ipv6PoolId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->ueIpReuse.ipv6PoolId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->ueIpReuse.ipv4PfxLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->ueIpReuse.ipv4PfxLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->ueIpReuse.ipv6PfxLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->ueIpReuse.ipv6PfxLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->ueIpReuse.ipHoldTimer: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->ueIpReuse.ipHoldTimer);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->ueIpReuse.spare: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->ueIpReuse.spare);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv4: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv4);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 16; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr8[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Slaac.__in6_u.__u6_addr8[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr16[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Slaac.__in6_u.__u6_addr16[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 4; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr32[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Slaac.__in6_u.__u6_addr32[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 16; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr8[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Pd.__in6_u.__u6_addr8[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr16[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Pd.__in6_u.__u6_addr16[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 4; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr32[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Pd.__in6_u.__u6_addr32[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 16; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr8[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Na.__in6_u.__u6_addr8[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr16[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Na.__in6_u.__u6_addr16[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 4; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr32[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6Na.__in6_u.__u6_addr32[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv4PoolId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv4PoolId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv6SlaacPoolId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6SlaacPoolId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv6PdPoolId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6PdPoolId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv6NaPoolId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6NaPoolId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv4SubPrefLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv4SubPrefLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv6SlaacSubPrefLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6SlaacSubPrefLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv6PdSubPrefLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6PdSubPrefLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv6NaSubPrefLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6NaSubPrefLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv4PrefLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv4PrefLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv6SlaacPrefLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6SlaacPrefLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipv6PdPrefLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipv6PdPrefLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.uIdType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.uIdType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.uId.ipv4: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.uId.ipv4);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 16; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr8[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.uId.ipv6.__in6_u.__u6_addr8[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr16[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.uId.ipv6.__in6_u.__u6_addr16[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 4; i++) {
+        used = snprintf(pBuf + offset, size, "__u6_addr32[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.uId.ipv6.__in6_u.__u6_addr32[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pdnOdsaInfo.ipHoldTime: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pdnOdsaInfo.ipHoldTime);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->chargingId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->chargingId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pSmContextStatusUri: %s\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pSmContextStatusUri);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pPSmfContextUri: %s\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pPSmfContextUri);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pOldISmfUri: %s\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pOldISmfUri);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pPSmfCpmUri: %s\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pPSmfCpmUri);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 16; i++) {
+        used = snprintf(pBuf + offset, size, "octets[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->smfId.octets[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 16; i++) {
+        used = snprintf(pBuf + offset, size, "octets[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->smContextSmfId.octets[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 16; i++) {
+        used = snprintf(pBuf + offset, size, "octets[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->amfId.octets[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->amfClientIp, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->amfClientPort: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->amfClientPort);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->amfServerIp, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->amfServerPort: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->amfServerPort);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->bufferedMsgType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->bufferedMsgType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->bufferedN1MsgType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->bufferedN1MsgType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->bufferedN1Cause: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->bufferedN1Cause);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->bufferedN2MsgType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->bufferedN2MsgType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->bufferedTcId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->bufferedTcId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->bufferedMsgLen: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->bufferedMsgLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->seqNum: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->seqNum);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->currGuami.mcc: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->currGuami.mcc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->currGuami.isMnc2Digits: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->currGuami.isMnc2Digits);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->currGuami.mnc: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->currGuami.mnc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->currGuami.amfId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->currGuami.amfId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (int ipBearerRec = 0; ipBearerRec < 8; ipBearerRec++) {
+used = snprintf(pBuf + offset, size, " pBearer->bearerId: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->bearerId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->isBearerDef: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->isBearerDef);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->reconAllowed: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->reconAllowed);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->mcReconAllowed: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->mcReconAllowed);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->synced: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->synced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->mcSynced: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->mcSynced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->needsAudit: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->needsAudit);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->haOpType: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->haOpType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->histCurrNum: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->histCurrNum);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->fill: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->fill);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->fsmEnv.currEvent: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->fsmEnv.currEvent);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->fsmEnv.currState: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->fsmEnv.currState);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->fsmEnv.prevState: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->fsmEnv.prevState);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->fsmEnv.dummy: %x\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->fsmEnv.dummy);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearer->stHist.prevStates: /%" PRIu64 "\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->stHist.prevStates);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevSt[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->stHist.prevSt[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pBearer->evHist.prevStates: /%" PRIu64 "\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->evHist.prevStates);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevSt[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->evHist.prevSt[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pBearer->evHist.prevEvents: /%" PRIu64 "\n", ipPduSessRec,ipBearerRec,pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->evHist.prevEvents);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevEv[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->evHist.prevEv[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "evTimeStamp[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pBearerRec[ipBearerRec]->evTimeStamp[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+}
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->bearerId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->bearerId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->isBearerDef: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->isBearerDef);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->reconAllowed: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->reconAllowed);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->mcReconAllowed: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->mcReconAllowed);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->synced: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->synced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->mcSynced: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->mcSynced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->needsAudit: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->needsAudit);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->haOpType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->haOpType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->histCurrNum: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->histCurrNum);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->fill: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->fill);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->fsmEnv.currEvent: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->fsmEnv.currEvent);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->fsmEnv.currState: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->fsmEnv.currState);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->fsmEnv.prevState: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->fsmEnv.prevState);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->fsmEnv.dummy: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->fsmEnv.dummy);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->stHist.prevStates: /%" PRIu64 "\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->stHist.prevStates);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevSt[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pDefBearer->stHist.prevSt[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->evHist.prevStates: /%" PRIu64 "\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->evHist.prevStates);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevSt[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pDefBearer->evHist.prevSt[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pDefBearer->evHist.prevEvents: /%" PRIu64 "\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pDefBearer->evHist.prevEvents);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevEv[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pDefBearer->evHist.prevEv[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "evTimeStamp[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pDefBearer->evTimeStamp[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->pdnSessId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->pdnSessId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->ueId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->ueId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->sessIndex: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->sessIndex);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.numBearers: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.numBearers);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (int ibearer = 0; ibearer < 1; ibearer++) {
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].isEmps: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].isEmps);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].isdefault: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].isdefault);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].spare: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].spare);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].pti: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].pti);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].smgrInBrId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].smgrInBrId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerFlags: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerFlags);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].ulTFT.id: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].ulTFT.id);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].ulTFT.len: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].ulTFT.len);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].ulTFT.encLen: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].ulTFT.encLen);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 1024; i++) {
+        used = snprintf(pBuf + offset, size, "val[%d]: %x\n", i,  pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].ulTFT.val[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.endPtAddr, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.teId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.teId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.lclTeId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.lclTeId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.flowLbl: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.flowLbl);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.lclFlowLbl: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.lclFlowLbl);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.lclAddr, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.refPtId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.refPtId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.lclVrId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.lclVrId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.lclIfType: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.lclIfType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.remIfType: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.remIfType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.vrId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.vrId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].uplkTnl.ipv4Addr: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].uplkTnl.ipv4Addr);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.endPtAddr, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.teId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.teId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.lclTeId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.lclTeId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.flowLbl: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.flowLbl);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.lclFlowLbl: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.lclFlowLbl);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.lclAddr, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.refPtId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.refPtId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.lclVrId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.lclVrId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.lclIfType: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.lclIfType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.remIfType: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.remIfType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.vrId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.vrId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].dnlkTnl.ipv4Addr: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].dnlkTnl.ipv4Addr);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.endPtAddr, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.teId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.teId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.lclTeId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.lclTeId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.flowLbl: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.flowLbl);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.lclFlowLbl: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.lclFlowLbl);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used =  snprintf (pBuf + offset, size, "%s", TIM_NET_ADDR_PRINT(&pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.lclAddr, ipv4AddrBuf , sizeof(ipv4AddrBuf)));
+      NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+      NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.refPtId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.refPtId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.lclVrId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.lclVrId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.lclIfType: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.lclIfType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.remIfType: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.remIfType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.vrId: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.vrId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].s11UTnl.ipv4Addr: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].s11UTnl.ipv4Addr);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.arp: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.arp);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.preEmptCapab: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.preEmptCapab);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.preEmptVulner: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.preEmptVulner);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.fill1: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.fill1);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.qci: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.qci);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.dscp: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.dscp);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.fill2: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.fill2);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.upLkMBR: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.upLkMBR);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.dnLkMBR: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.dnLkMBR);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.ulLkGBR: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.ulLkGBR);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->pEpcSessInfo->bearerCtxtData.bearer[%d].bearerQos.dnLkGBR: %x\n", ipPduSessRec,ibearer,pUe->pPduSessRec[ipPduSessRec]->pEpcSessInfo->bearerCtxtData.bearer[ibearer].bearerQos.dnLkGBR);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+}
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->nssai.slcDiff: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->nssai.slcDiff);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->nssai.slcSrvType: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->nssai.slcSrvType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pPduSessRec[%d]->mappedApnId: %x\n", ipPduSessRec,pUe->pPduSessRec[ipPduSessRec]->mappedApnId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+}
+for (int ipBearerRec = 0; ipBearerRec < 8; ipBearerRec++) {
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->bearerId: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->bearerId);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->isBearerDef: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->isBearerDef);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->reconAllowed: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->reconAllowed);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->mcReconAllowed: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->mcReconAllowed);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->synced: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->synced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->mcSynced: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->mcSynced);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->needsAudit: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->needsAudit);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->haOpType: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->haOpType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->histCurrNum: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->histCurrNum);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->fill: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->fill);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->fsmEnv.currEvent: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->fsmEnv.currEvent);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->fsmEnv.currState: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->fsmEnv.currState);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->fsmEnv.prevState: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->fsmEnv.prevState);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->fsmEnv.dummy: %x\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->fsmEnv.dummy);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->stHist.prevStates: /%" PRIu64 "\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->stHist.prevStates);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevSt[%d]: %x\n", i,  pUe->pBearerRec[ipBearerRec]->stHist.prevSt[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->evHist.prevStates: /%" PRIu64 "\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->evHist.prevStates);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevSt[%d]: %x\n", i,  pUe->pBearerRec[ipBearerRec]->evHist.prevSt[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " pBearerRec[%d]->evHist.prevEvents: /%" PRIu64 "\n", ipBearerRec,pUe->pBearerRec[ipBearerRec]->evHist.prevEvents);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "prevEv[%d]: %x\n", i,  pUe->pBearerRec[ipBearerRec]->evHist.prevEv[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "evTimeStamp[%d]: %x\n", i,  pUe->pBearerRec[ipBearerRec]->evTimeStamp[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+}
+used = snprintf(pBuf + offset, size, " ueInSet.gpsiType: %x\n", pUe->ueInSet.gpsiType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.unAuthSupiExist: %x\n", pUe->ueInSet.unAuthSupiExist);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.unauthenticatedSupi: %x\n", pUe->ueInSet.unauthenticatedSupi);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.fill: %x\n", pUe->ueInSet.fill);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.servNetwork: %x\n", pUe->ueInSet.servNetwork);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.ueTimeZone.zone: %x\n", pUe->ueInSet.ueTimeZone.zone);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.ueTimeZone.dst: %x\n", pUe->ueInSet.ueTimeZone.dst);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.uliType: %x\n", pUe->ueInSet.usrLocInfo.uliType);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+for (i = 0; i < 14; i++) {
+        used = snprintf(pBuf + offset, size, "genericData[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.genericData[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 7; i++) {
+        used = snprintf(pBuf + offset, size, "cellGlobId[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.cellGlobId[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 7; i++) {
+        used = snprintf(pBuf + offset, size, "srvAreaId[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.srvAreaId[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 7; i++) {
+        used = snprintf(pBuf + offset, size, "rtgAreaId[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.rtgAreaId[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 5; i++) {
+        used = snprintf(pBuf + offset, size, "trkAreaId[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.trkAreaId[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 7; i++) {
+        used = snprintf(pBuf + offset, size, "epcCellGlobId[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.epcCellGlobId[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 12; i++) {
+        used = snprintf(pBuf + offset, size, "taiAndEcgi[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.taiAndEcgi[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 14; i++) {
+        used = snprintf(pBuf + offset, size, "saiAndRai[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.saiAndRai[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 14; i++) {
+        used = snprintf(pBuf + offset, size, "cgiAndRai[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.cgiAndRai[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 8; i++) {
+        used = snprintf(pBuf + offset, size, "ncgi[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.ncgi[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 6; i++) {
+        used = snprintf(pBuf + offset, size, "tai5GS[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.tai5GS[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 14; i++) {
+        used = snprintf(pBuf + offset, size, "tai5gsAndNcgi[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.tai5gsAndNcgi[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 11; i++) {
+        used = snprintf(pBuf + offset, size, "ngRanNodeId[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.ngRanNodeId[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+for (i = 0; i < 17; i++) {
+        used = snprintf(pBuf + offset, size, "taiAndNgRanNodeId[%d]: %x\n", i,  pUe->ueInSet.usrLocInfo.u.taiAndNgRanNodeId[i]);
+        NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+        NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+    }
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.tai.mcc: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.tai.mcc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.tai.isMnc2Digits: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.tai.isMnc2Digits);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.tai.mnc: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.tai.mnc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.tai.isTac6Digits: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.tai.isTac6Digits);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.tai.tac: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.tai.tac);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.ncgi.mcc: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.ncgi.mcc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.ncgi.isMnc2Digits: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.ncgi.isMnc2Digits);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.ncgi.mnc: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.ncgi.mnc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.ncgi.ncid: /%" PRIu64 "\n", pUe->ueInSet.usrLocInfo.u.nrLocation.ncgi.ncid);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.globalGnbId.plmn.mcc: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.globalGnbId.plmn.mcc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.globalGnbId.plmn.isMnc2Digits: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.globalGnbId.plmn.isMnc2Digits);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.globalGnbId.plmn.mnc: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.globalGnbId.plmn.mnc);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.globalGnbId.gNBId.bitLength: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.globalGnbId.gNBId.bitLength);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.globalGnbId.gNBId.gNbValue: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.globalGnbId.gNBId.gNbValue);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.globalGnbId.nGeNbId.MacroNGeNB: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.globalGnbId.nGeNbId.MacroNGeNB);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.globalGnbId.nGeNbId.LMacroNGeNB: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.globalGnbId.nGeNbId.LMacroNGeNB);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+
+used = snprintf(pBuf + offset, size, " ueInSet.usrLocInfo.u.nrLocation.globalGnbId.nGeNbId.SMacroNGeNB: %x\n", pUe->ueInSet.usrLocInfo.u.nrLocation.globalGnbId.nGeNbId.SMacroNGeNB);
+    NSERV_UPDATE_SIZE_AND_OFFSET(used, size, offset);
+    NSERV_CHECK_REMAINING_SIZE_AND_EXIT(size);
+

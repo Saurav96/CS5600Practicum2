@@ -165,6 +165,7 @@ void client_recieveMessageFromServer(char *server_message)
   }
 
   printf("RECIEVED FROM SERVER: %s \n", server_message);
+  
 }
 
 
@@ -191,19 +192,24 @@ void command_get(char *remote_file_path, char *local_file_path)
   // Open local file for writing
   FILE *local_file;
   char actual_path[200];
+  char directory_path[200];
   strcpy(actual_path, CLIENT_DIRECTORY);
   strncat(actual_path, local_file_path, strlen(local_file_path));
   printf("GET: client actual path: %s \n", actual_path);
   
   char directory[200];
   char file_name[200];
-  sscanf(remote_file_path, "%[^/]/%s", directory, file_name);
 
+  sscanf(local_file_path, "%[^/]/%s", directory, file_name);
+  strcpy(directory_path, CLIENT_DIRECTORY);
+  strcat(directory_path, directory);
+  printf("%s\n", directory_path);
   // Create the directory if it doesn't exist
     struct stat st = {0};
-    if (stat(directory, &st) == -1) {
-        mkdir(directory, 0700);
-        printf("WRITE: Directory '%s' created\n", directory);
+    if (stat(directory_path, &st) == -1) {
+
+        mkdir(directory_path, 0700);
+        printf("WRITE: Directory '%s' created\n", directory_path);
     }
 
   local_file = fopen(actual_path, "w");
@@ -407,6 +413,55 @@ void command_write(char *local_file_path, char *remote_file_path)
     printf("COMMAND: SEND complete\n\n");
 }
 
+void command_ls(char *remote_file_path)
+{
+    printf("COMMAND: LS started\n");
+
+    client_connect();
+    // Send request to server
+    char client_message[CODE_SIZE + CODE_PADDING + CLIENT_MESSAGE_SIZE];
+    memset(client_message, 0, sizeof(client_message));
+    strcat(client_message, "C:004 ");
+    strcat(client_message, remote_file_path);
+    client_sendMessageToServer(client_message);
+
+    // Receive server response
+    char server_response[CODE_SIZE + CODE_PADDING + SERVER_MESSAGE_SIZE];
+    memset(server_response, 0, sizeof(server_response));
+    client_recieveMessageFromServer(server_response);
+
+    // Check if the server is ready to send file information
+    if (strncmp(server_response, "S:100", CODE_SIZE) == 0)
+    {
+        // Receive and print file information
+        memset(server_response, 0, sizeof(server_response));
+        client_recieveMessageFromServer(server_response);
+
+        while (strncmp(server_response, "S:206", CODE_SIZE) == 0)
+        {
+            char *file_info = server_response + CODE_SIZE + CODE_PADDING;
+            // Receive the next file information
+            memset(server_response, 0, sizeof(server_response));
+            client_recieveMessageFromServer(server_response);
+        }
+
+        // Print completion message
+        if (strncmp(server_response, "S:200", CODE_SIZE) == 0)
+        {
+            printf("LS: File information received successfully\n");
+        }
+        else
+        {
+            printf("LS ERROR: Unable to receive file information\n");
+        }
+    }
+    else
+    {
+        printf("LS ERROR: Server is not ready to send file information\n");
+    }
+
+    printf("COMMAND: LS complete\n\n");
+}
 
 void command_remove(char *path)
 {
@@ -474,8 +529,19 @@ void client_parseCommand(int argsCount, char **argv)
             {
                 printf("ERROR: Invalid arguements provided\n");
              }
-            printf("%s", argv[2]);
             command_remove(argv[2]);
+        }
+    }
+    else if(strcmp(argv[1], "LS") == 0)
+    {
+        
+        if (argsCount == 3)
+        {
+            command_ls(argv[2]);
+        }
+        else
+        {
+            printf("ERROR: Invalid number of arguements provided\n");
         }
     }
     else
@@ -507,7 +573,8 @@ int main(int argc, char **argv)
 
   if (strcmp(argv[1], "WRITE") != 0 &&
       strcmp(argv[1], "GET") != 0 &&
-      strcmp(argv[1], "RM") != 0)
+      strcmp(argv[1], "RM") != 0 && 
+      strcmp(argv[1], "LS") !=0)
   {
     printf("Incorrect command provided!: %s\n", argv[1]);
     return 0;

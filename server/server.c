@@ -401,7 +401,23 @@ void command_write(int client_sock, char *remote_file_path)
         printf("WRITE: Directory '%s' created\n", directory);
     }
 
-    FILE *remote_file = fopen(actual_path, "w");
+    time_t t = time(NULL);
+    struct tm *tm_info = localtime(&t);
+    char timestamp[20];
+    strftime(timestamp, sizeof(timestamp), "%Y%m%d%H%M%S", tm_info);
+
+    // Append the timestamp to the filename to create a new version
+    char versioned_file_name[200];
+    sprintf(versioned_file_name, "%s_%s", file_name, timestamp);
+
+    // Combine the directory and versioned filename
+    char versioned_actual_path[1000];
+    strcpy(versioned_actual_path, ROOT_DIRECTORY);
+    strcat(versioned_actual_path, directory);
+    strcat(versioned_actual_path, "/");
+    strcat(versioned_actual_path, versioned_file_name);
+    printf("%s\n", versioned_actual_path);
+    FILE *remote_file = fopen(versioned_actual_path, "w");
     if (remote_file == NULL)
     {
         printf("RECEIVE ERROR: Local file could not be opened for writing.\n");
